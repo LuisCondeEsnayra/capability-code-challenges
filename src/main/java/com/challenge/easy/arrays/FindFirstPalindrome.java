@@ -28,12 +28,30 @@ package com.challenge.easy.arrays;
          * words[i] consists only of lowercase English letters.
  */
 public class FindFirstPalindrome {
+        public static boolean isPalindrome(String word){
+            int left = 0;
+            int right = word.length()-1;
+            while(left<right){
+                if(word.charAt(left) != word.charAt(right)){
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+        }
 
-    public static String firstPalindrome(String[] words) {
-        return null;
-    }
+        public static String firstPalindrome(String[] words) {
+            for(String word : words ){
+                if(isPalindrome(word)){
+                    return word;
+                }
+            }
+            return "";
+        }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
+        }
 
-    }
+
 }
