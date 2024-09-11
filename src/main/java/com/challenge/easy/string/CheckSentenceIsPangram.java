@@ -32,10 +32,8 @@ import static java.util.Map.entry;
 public class CheckSentenceIsPangram {
 
     public static boolean checkIfPangram(String sentence) {
-        char[] charSentence = sentence.toCharArray();
         Set<Character> pangram= new HashSet<>();
-
-        for(char letter : charSentence){
+        for(char letter : sentence.toCharArray()){
                 pangram.add(letter);
         }
         return pangram.size() == 26;
