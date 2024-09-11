@@ -1,5 +1,10 @@
 package com.challenge.easy.matrix;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.IntStream;
+
 /**
     #
 
@@ -44,7 +49,16 @@ package com.challenge.easy.matrix;
 public class MatrixDiagonalSum {
 
     public static int diagonalSum(int[][] mat) {
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < mat.length; i++) {
+               sum+= mat[i][i];
+                if(mat.length-1-i != i){
+                    sum += mat[mat.length-1-i][i];
+                };
+        }
+
+        return sum;
+
     }
 
     public static void main(String[] args) {
