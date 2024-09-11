@@ -1,5 +1,12 @@
 package com.challenge.easy.string;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import static java.util.Map.entry;
+
 /**
 
     # Check if the Sentence Is Pangram
@@ -25,7 +32,13 @@ package com.challenge.easy.string;
 public class CheckSentenceIsPangram {
 
     public static boolean checkIfPangram(String sentence) {
-        return false;
+        char[] charSentence = sentence.toCharArray();
+        Set<Character> pangram= new HashSet<>();
+
+        for(char letter : charSentence){
+                pangram.add(letter);
+        }
+        return pangram.size() == 26;
     }
 
     public static void main(String[] args) {
