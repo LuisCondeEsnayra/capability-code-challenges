@@ -1,5 +1,7 @@
 package com.challenge.easy.math;
 
+import java.util.Map;
+
 /**
     # Roman to Integer
 
@@ -47,7 +49,28 @@ package com.challenge.easy.math;
 public class RomanToInteger {
 
     public static int romanToInt(String s) {
-        return 0;
+        int previous=0;
+        Map<Character, Integer> romanValues= Map.of(
+        'I' ,1,
+        'V' ,5,
+        'X' ,10,
+        'L' ,50,
+        'C' ,100,
+        'D' ,500,
+        'M' ,1000
+        );
+
+        char[] arrayChar= s.toCharArray();
+        int total =0;
+        for(Character letter : arrayChar){
+            int current= romanValues.get(letter);
+            if (previous < current){
+                total-= previous*2;
+            }
+            total+= current;
+            previous = current;
+        }
+        return total;
     }
 
     public static void main(String[] args) {
