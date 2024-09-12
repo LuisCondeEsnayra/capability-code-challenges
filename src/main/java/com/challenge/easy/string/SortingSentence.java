@@ -1,5 +1,7 @@
 package com.challenge.easy.string;
 
+import java.util.Arrays;
+
 /**
     # Sorting the Sentence
 
@@ -32,7 +34,17 @@ package com.challenge.easy.string;
 public class SortingSentence {
 
     public static String sortSentence(String s) {
-        return null;
+        String[] words = s.split(" ");
+        String[] sArray =new String[words.length];
+        for(String word :words){
+            String numInChar =""+word.charAt(word.length()-1);
+
+           int position= Integer.parseInt(numInChar) ;
+            sArray[position-1] = word.substring(0,word.length()-1);
+
+        }
+        return String.join(" ", sArray);
+
     }
 
     public static void main(String[] args) {
