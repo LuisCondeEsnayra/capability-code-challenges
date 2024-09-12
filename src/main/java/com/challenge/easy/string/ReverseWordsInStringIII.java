@@ -1,5 +1,9 @@
 package com.challenge.easy.string;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
     # Reverse Words in a String III
 
@@ -24,8 +28,22 @@ package com.challenge.easy.string;
  */
 public class ReverseWordsInStringIII {
 
+    public static String reverse(String word){
+        char[] reversed= new char[word.length()];
+        for(int i=0; i < word.length();i++ ){
+            reversed[word.length()-1-i]= word.charAt(i);
+        }
+
+        return new String(reversed);
+    }
+
     public static String reverseWords(String s) {
-        return null;
+        List<String> result = new ArrayList<>();
+        for(String sub : s.split(" ")){
+            result.add(reverse(sub));
+        }
+
+        return  String.join(" ",result);
     }
 
     public static void main(String[] args) {
